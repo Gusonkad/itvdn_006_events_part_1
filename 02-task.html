@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 02</title>
+  </head>
+
+  <body>
+    <script>
+      /*
+        Задание:
+        Напишите сценарий, который вычисляет объем цилиндра по параметрам, которые вводит пользователь.
+        Для расчета используйте формулу - V=π * r в квадрате * h
+        Разместите на странице два поля ввода - первое для радиуса цилиндра, второе для высоты цилиндра.
+        Объем цилиндра выведите в тело страницы.
+        */
+
+        let body = document.querySelector("body");
+
+        let inputR = document.createElement("input");
+        let inputH = document.createElement("input");
+        inputR.classList.add("rInput");
+        inputH.classList.add("hInput");
+        inputR.type ="text";
+        inputH.type ="text";
+        inputR.style.textAlign = "center";
+        inputH.style.textAlign = "center";
+
+        let button = document.createElement("button");
+        button.classList.add("calcButton");
+        button.textContent = "Розрахунок обєму циліндра";
+        
+        let result = document.createElement("div");
+        result.classList.add("output");
+        result.type ="text";
+        result.style.border = "2px solid blue";
+        result.style.background = "yellow";
+        result.style.width = "fit-content";
+        result.style.blockSize = "fit-content";
+        result.style.padding = "2px 35px 2px 35px";
+        result.style.marginTop = "20px";
+        result.style.textAlign = "center";
+        result.textContent = "Обєм циліндра";
+
+        body.append(inputR);
+        body.append(inputH);
+        body.append(button);
+        body.append(result);
+      
+
+        let calcBtn = document.querySelector(".calcButton");
+        let radiusInput = document.querySelector(".rInput");
+        let heigthInput = document.querySelector(".hInput");
+
+        calcBtn.addEventListener("click", function() {
+            let height = heigthInput.value;
+            let radius = radiusInput.value;
+            let volume = "Обєм циліндра" +" = "+ Math.PI * Math.pow(radius, 2) * height;
+            
+            document.querySelector(".output").textContent = volume;
+        });
+    </script>
+  </body>
+</html>
